@@ -1,7 +1,7 @@
 import React from 'react';
 import Answer from './answer';
 
-export default class HolaMundo extends React.Component {
+export default class Question extends React.Component {
   constructor() {
     super();
     this.state = {

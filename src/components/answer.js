@@ -7,20 +7,13 @@ export default function Answer(props) {
   };
 
   return (
+    <div>
+      SpanishWord
     <form
       onSubmit={e => {
         onSubmit(e);
       }}
     >
-      <input
-        type="text"
-        name="userAnswer"
-        id="userAnswer"
-        className="text"
-        maxLength="100"
-        autoComplete="off"
-        placeholder="Spanish word"
-      />
       <input
         type="text"
         name="userAnswer"
@@ -39,6 +32,7 @@ export default function Answer(props) {
         onClick={() => props.tester()}
       />
     </form>
+    </div>
   );
 }
 
