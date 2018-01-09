@@ -6,7 +6,7 @@ import authReducer from './reducers/auth';
 import protectedDataReducer from './reducers/protected-data';
 import questionsReducer from './reducers/questions';
 import {setAuthToken, refreshAuthToken} from './actions/auth';
-import questionsReducer from './reducers/questions';
+
 
 const store = createStore(
     combineReducers({
