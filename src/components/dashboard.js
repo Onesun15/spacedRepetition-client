@@ -15,7 +15,7 @@ export class Dashboard extends React.Component {
     if(!this.props.questions.length > 0) {
         return <h1>Loading....</h1>;
     }
-    console.log('props', this.props.questions[0].spanish);
+    console.log('properties', this.props.questions[0].spanish);
     // const questions = this.props.questions.map((index, question) => {
     //     console.log(index, question)
     // })
