@@ -8,7 +8,6 @@ export default function Answer(props) {
 
   return (
     <div>
-      SpanishWord
     <form
       onSubmit={e => {
         onSubmit(e);
@@ -21,7 +20,7 @@ export default function Answer(props) {
         className="text"
         maxLength="100"
         autoComplete="off"
-        placeholder="English word"
+        placeholder="Translate word to English"
       />
       <input
         type="submit"
@@ -29,7 +28,7 @@ export default function Answer(props) {
         className="button"
         name="submit"
         value="Check"
-        onClick={() => props.tester()}
+        onClick={() => console.log('check word')}
       />
     </form>
     </div>
