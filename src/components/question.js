@@ -1,42 +1,19 @@
 import React from 'react';
 import Answer from './answer';
 
-export default class Question extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      value: 'Hello'
-    };
-  }
-
-  tester() {
-    console.log('Hello');
-    //this.setState({ value: 'Bye' });
-  }
-
-  render() {
-    return (
+export default function Question(props){
+  console.log(props.firstQuestion, 'First question props')
+    return ( 
       <div>
          <p>Did you guess?</p>
-        <h1>Hello World! </h1>
-        <Answer tester={() => this.tester()} />
+        <h1>{props.firstQuestion}</h1>
+        <Answer />
       </div>
     );
   }
-}
 
 
-// const onSubmit = e => e.preventDefault();
-{/* <form onSubmit={onSubmit}>
-<label htmlFor="search">Search</label>&emsp;
-<input
-  type="search"
-  id="search"
-  name="search"
-  placeholder="Dale Cooper"
-  onChange={props.onChange}
-/>
-</form> */}
+
 
 
 
