@@ -47,8 +47,8 @@ export class Dashboard extends React.Component {
           Username: {this.props.username}
         </div>
         <Question
-          spanish={this.props.questions[this.state.count].spanish}
-          english={this.props.questions[this.state.count].english}
+          question={this.props.questions[this.state.count].question}
+          answer={this.props.questions[this.state.count].answer}
         />
         <Answer clickCheck={() => this.increament()} answer={this.props}/>
         {this.state.questionCount}

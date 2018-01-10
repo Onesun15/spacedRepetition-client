@@ -1,12 +1,17 @@
 import React from 'react';
 
 export default function Answer(props) {
-  console.log(props.answer.questions[0].english)
   const onSubmit = e => {
     e.preventDefault();
-    if(e.target.userAnswer.value === props.answer.questions[0].english) {
-     console.log('correct!')
-    }
+    const correct = props.answer.questions.map((answer) => {
+      if(e.target.userAnswer.value === answer.answer) {
+        return console.log('correct!')
+       }
+       else {
+         return console.log('wrong')
+       }
+    })
+    
     e.target.userAnswer.value = '';
   };
 
