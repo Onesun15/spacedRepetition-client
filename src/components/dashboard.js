@@ -24,7 +24,7 @@ export class Dashboard extends React.Component {
     if (this.state.count === 8) {
       this.setState({ questionCount: 'Last One!, click check to restart' });
     }
-    if (this.state.count == 9) {
+    if (this.state.count === 9) {
       this.props.dispatch(fetchQuestion());
       this.setState({ count: 0 });
       this.setState({ questionCount: '' });
@@ -35,6 +35,7 @@ export class Dashboard extends React.Component {
     if (this.props.questions.length === 0) {
       return <h1>Loading....</h1>;
     }
+    console.log(this.props)
     return (
       <div className="dashboard">
         <div className="dashboard-username">
