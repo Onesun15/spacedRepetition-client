@@ -8,29 +8,29 @@ export default function Answer(props) {
 
   return (
     <div>
-    <form
-      onSubmit={e => {
-        onSubmit(e);
-      }}
-    >
-      <input
-        type="text"
-        name="userAnswer"
-        id="userAnswer"
-        className="text"
-        maxLength="100"
-        autoComplete="off"
-        placeholder="Translate word to English"
-      />
-      <input
-        type="submit"
-        id="answerButton"
-        className="button"
-        name="submit"
-        value="Check"
-        onClick={() => console.log('check word')}
-      />
-    </form>
+      <form
+        onSubmit={e => {
+          onSubmit(e);
+        }}
+      >
+        <input
+          type="text"
+          name="userAnswer"
+          id="userAnswer"
+          className="text"
+          maxLength="100"
+          autoComplete="off"
+          placeholder="Translate word to English"
+          onChange={e => console.log(e.target.value)}
+        />
+        <input
+          type="submit"
+          id="answerButton"
+          className="button"
+          name="submit"
+          value="Check"
+        />
+      </form>
     </div>
   );
 }
