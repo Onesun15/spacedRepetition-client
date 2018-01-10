@@ -21,7 +21,7 @@ const fetchQuestionError = error => ({
 export const fetchQuestion = () => dispatch => {
   
   dispatch(fetchQuestionRequest());
-  console.log('hello fetch')
+  console.log('fetch question working')
   fetch(`${API_BASE_URL}/questions`)
     .then(res => {
       if (!res.ok) {
