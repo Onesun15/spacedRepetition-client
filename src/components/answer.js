@@ -6,20 +6,26 @@ export class Answer extends React.Component{
 
  onSubmit = e => {
     e.preventDefault();
-    let word = this.userAnswer.value
-    console.log(word,  'word')
-    this.userAnswer.value = ' ';
+    const correct = props.answer.questions.map((answer) => {
+      if(e.target.userAnswer.value === answer.answer) {
+        return console.log('correct!')
+       }
+       else {
+         return console.log('wrong')
+       }
+    })
     
+    e.target.userAnswer.value = '';
   };
-
-  render() {
-    return (
-      <div>
+ render() {
+  return (
+    <div>
       <form
-        onSubmit={e => {this.onSubmit(e)}}
+        onSubmit={e => {
+          onSubmit(e);
+        }}
       >
         <input
-          ref={input => this.userAnswer = input}
           type="text"
           name="userAnswer"
           id="userAnswer"
@@ -27,7 +33,7 @@ export class Answer extends React.Component{
           maxLength="100"
           autoComplete="off"
           placeholder="Translate word to English"
-          
+          onChange={e => console.log(e.target.value)}
         />
         <input
           type="submit"
@@ -35,11 +41,11 @@ export class Answer extends React.Component{
           className="button"
           name="submit"
           value="Check"
+          onClick={() => props.clickCheck()}
         />
       </form>
-      </div>
-    );
-  }
+    </div>
+  );
 }
-
+}
 export default (Answer)
