@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import requiresLogin from './requires-login';
-// import { fetchProtectedData } from '../actions/protected-data';
 import Question from './question';
 import Answer from './answer';
 import { fetchQuestion } from '../actions/questions';
@@ -36,23 +35,12 @@ export class Dashboard extends React.Component {
     if (this.props.questions.length === 0) {
       return <h1>Loading....</h1>;
     }
-    // const questions = this.props.questions.map((question, index) => (
-    //   <div className="questions-list" key={index}>
-    //       <div className="spanish">{question.spanish}</div>
-    //       <div className="english">{question.english}</div>
-    //   </div>
-    //));
     return (
       <div className="dashboard">
         <div className="dashboard-username">
           Username: {this.props.username}
         </div>
-        <Question
-          spanish={this.props.questions[this.state.count].spanish}
-          english={this.props.questions[this.state.count].english}
-        />
-        <Answer clickCheck={() => this.increament()} answer={this.props}/>
-        {this.state.questionCount}
+        <Question text={this.props.questions[0].spanish} />
       </div>
     );
   }
