@@ -1,8 +1,12 @@
 import React from 'react';
 
 export default function Answer(props) {
+  console.log(props.answer.questions[0].english)
   const onSubmit = e => {
     e.preventDefault();
+    if(e.target.userAnswer.value === props.answer.questions[0].english) {
+     console.log('correct!')
+    }
     e.target.userAnswer.value = '';
   };
 
@@ -29,6 +33,7 @@ export default function Answer(props) {
           className="button"
           name="submit"
           value="Check"
+          onClick={() => props.clickCheck()}
         />
       </form>
     </div>
