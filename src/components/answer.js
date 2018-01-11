@@ -1,17 +1,14 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { fetchAnswer } from '../actions/answers';
 
-export default function Answer(props) {
+
+export function Answer(props) {
+  //console.log(props.questions.answer)
   const onSubmit = e => {
     e.preventDefault();
-    const correct = props.answer.questions.map((answer) => {
-      if(e.target.userAnswer.value === answer.answer) {
-        return console.log('correct!')
-       }
-       else {
-         return console.log('wrong')
-       }
-    })
-    
+    // const isCorrect = e.target.userAnswer.value === props.answer;
+    // props.dispatch(fetchAnswer(isCorrect));
     e.target.userAnswer.value = '';
   };
 
@@ -38,18 +35,18 @@ export default function Answer(props) {
           className="button"
           name="submit"
           value="Check"
-          onClick={() => props.clickCheck()}
+          // onClick={() => props.clickCheck()}
         />
       </form>
     </div>
   );
 }
 
-// return (
-//   <form onSubmit={onSubmit}>
-//     <button className="answer-button" onClick={() => props.tester()}>
-//       Answer
-//     </button>
-//   </form>
-// );
-// }
+const mapStateToProps = state => {
+  const { currentUser } = state.auth;
+  return {
+  //answer: state.answer.questions.questions.answer
+  };
+};
+
+export default connect(mapStateToProps)(Answer);
