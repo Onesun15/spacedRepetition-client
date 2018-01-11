@@ -32,9 +32,12 @@ export class Dashboard extends React.Component {
   }
 
   render() {
-    if (this.props.questions.length === 0) {
+   
+    if (!this.props.questions.questions) {
       return <h1>Loading....</h1>;
     }
+    console.log(this.props.questions.questions.question)
+    //this.props.questions.questions ?  console.log(this.props.questions.questions.question) : null;
     // const questions = this.props.questions.map((question, index) => (
     //   <div className="questions-list" key={index}>
     //       <div className="spanish">{question.spanish}</div>
@@ -47,8 +50,8 @@ export class Dashboard extends React.Component {
           Username: {this.props.username}
         </div>
         <Question
-          question={this.props.questions[this.state.count].question}
-          answer={this.props.questions[this.state.count].answer}
+          question={this.props.questions.questions.question}
+          answer={this.props.questions.questions.answer}
         />
         <Answer clickCheck={() => this.increament()} answer={this.props}/>
         {this.state.questionCount}

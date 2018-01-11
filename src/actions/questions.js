@@ -18,11 +18,17 @@ const fetchQuestionError = error => ({
   error
 });
 
-export const fetchQuestion = () => dispatch => {
-  
+export const fetchQuestion = () => (dispatch, getState) => {
+  const authToken = getState().auth.authToken;
   dispatch(fetchQuestionRequest());
   console.log('fetch question working')
-  fetch(`${API_BASE_URL}/questions`)
+  fetch(`${API_BASE_URL}/questions`,  {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+      Authorization: `Bearer ${authToken}`}
+    })
     .then(res => {
       if (!res.ok) {
         return Promise.reject(res.statusText);
