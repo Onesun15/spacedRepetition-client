@@ -7,8 +7,11 @@ export function Answer(props) {
   //console.log(props.questions.answer)
   const onSubmit = e => {
     e.preventDefault();
-    // const isCorrect = e.target.userAnswer.value === props.answer;
-    // props.dispatch(fetchAnswer(isCorrect));
+    // console.log(e.target.userAnswer.value);
+    // console.log(props.answer)
+    const isCorrect = e.target.userAnswer.value === props.answer;
+    // console.log(isCorrect)
+    props.dispatch(fetchAnswer(isCorrect));
     e.target.userAnswer.value = '';
   };
 
@@ -27,7 +30,7 @@ export function Answer(props) {
           maxLength="100"
           autoComplete="off"
           placeholder="Translate word to English"
-          onChange={e => console.log(e.target.value)}
+          // onChange={e => e.target.value}
         />
         <input
           type="submit"
@@ -44,8 +47,10 @@ export function Answer(props) {
 
 const mapStateToProps = state => {
   const { currentUser } = state.auth;
+  console.log(state)
   return {
-  //answer: state.answer.questions.questions.answer
+   // answer: state.data.questions.answer
+    answer: state.questions.data.questions.answer
   };
 };
 

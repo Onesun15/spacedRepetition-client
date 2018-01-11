@@ -19,8 +19,9 @@ export default (state = initialState, action) => {
       error: null
     });
   } else if (action.type === FETCH_ANSWER_SUCCESS) {
+    console.log('action', action.data)
     return Object.assign({}, state, {
-      data: action.answer,
+      data: action.data,
       loading: false,
       error: null
     });

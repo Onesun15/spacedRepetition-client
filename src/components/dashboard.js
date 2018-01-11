@@ -2,33 +2,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 import requiresLogin from './requires-login';
 import Question from './question';
-import Answer from './answer';
+import Answer from './answers2';
 import { fetchQuestion } from '../actions/questions';
 
 export class Dashboard extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      count: 0,
-      questionCount: ''
-    };
-  }
+
   componentDidMount() {
     this.props.dispatch(fetchQuestion());
-  }
-
-  increament() {
-    if (this.state.count < 9) {
-      this.setState({ count: this.state.count + 1 });
-    }
-    if (this.state.count === 8) {
-      this.setState({ questionCount: 'Last One!, click check to restart' });
-    }
-    if (this.state.count === 9) {
-      this.props.dispatch(fetchQuestion());
-      this.setState({ count: 0 });
-      this.setState({ questionCount: '' });
-    }
   }
 
   render() {

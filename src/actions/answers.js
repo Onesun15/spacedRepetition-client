@@ -18,6 +18,23 @@ const fetchAnswerError = error => ({
   error
 });
 
+export const FETCH_NEXT_REQUEST = 'FETCH_NEXT_REQUEST';
+const fetchNextRequest = () => ({
+  type: FETCH_NEXT_REQUEST
+});
+
+export const FETCH_NEXT_SUCCESS = 'FETCH_NEXT_SUCCESS';
+const fetchNextSuccess = next => ({
+  type: FETCH_NEXT_SUCCESS,
+  next
+});
+
+export const FETCH_NEXT_ERROR = 'FETCH_NEXT_ERROR';
+const fetchNextError = error => ({
+  type: FETCH_NEXT_ERROR,
+  error
+});
+
 export const fetchAnswer = (boolean) => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
   dispatch(fetchAnswerRequest());
@@ -34,8 +51,32 @@ export const fetchAnswer = (boolean) => (dispatch, getState) => {
       if (!res.ok) {
         return Promise.reject(res.statusText);
       }
+      console.log(res);
       return res.json();
     })
     .then(answer => dispatch(fetchAnswerSuccess(answer)))
     .catch(error => dispatch(fetchAnswerError(error)));
+};
+
+
+export const fetchNext = () => (dispatch, getState) => {
+  const authToken = getState().auth.authToken;
+  dispatch(fetchNextRequest());
+  console.log('fetch answer working')
+  fetch(`${API_BASE_URL}/questions/next`,  {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+      Authorization: `Bearer ${authToken}`}
+    })
+    .then(res => {
+      if (!res.ok) {
+        return Promise.reject(res.statusText);
+      }
+      console.log(res);
+      return res.json();
+    })
+    .then(answer => dispatch(fetchNextSuccess(answer)))
+    .catch(error => dispatch(fetchNextError(error)));
 };
