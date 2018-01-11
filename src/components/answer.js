@@ -1,10 +1,7 @@
-import React, { Component } from 'react';
-// import { fetchQuestion } from '../actions/questions';
+import React from 'react';
 
-export class Answer extends React.Component{
- 
-
- onSubmit = e => {
+export default function Answer(props) {
+  const onSubmit = e => {
     e.preventDefault();
     const correct = props.answer.questions.map((answer) => {
       if(e.target.userAnswer.value === answer.answer) {
@@ -17,7 +14,7 @@ export class Answer extends React.Component{
     
     e.target.userAnswer.value = '';
   };
- render() {
+
   return (
     <div>
       <form
@@ -47,5 +44,12 @@ export class Answer extends React.Component{
     </div>
   );
 }
-}
-export default (Answer)
+
+// return (
+//   <form onSubmit={onSubmit}>
+//     <button className="answer-button" onClick={() => props.tester()}>
+//       Answer
+//     </button>
+//   </form>
+// );
+// }
