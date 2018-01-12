@@ -7,13 +7,16 @@ export class Answer extends React.Component {
   componentDidMount() {
     this.props.dispatch(fetchNext());
   }
+ 
   onSubmit = e => {
     e.preventDefault();
-    const isCorrect = e.target.userAnswer.value === this.props.answer;
+    const isCorrect = e.target.userAnswer.value === this.props.questions.answer;
+    console.log('isCorrect', isCorrect)
     this.props.dispatch(fetchAnswer(isCorrect));
     e.target.userAnswer.value = '';
   };
   render() {
+    console.log('ANSWERsPROP = ', this.props.questions.answer)
     return (
       <div>
         <form
@@ -29,6 +32,7 @@ export class Answer extends React.Component {
             maxLength="100"
             autoComplete="off"
             placeholder="Translate word to English"
+            onChange={e => console.log(e.target.value)}
           />
           <input
             type="submit"
