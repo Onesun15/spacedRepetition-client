@@ -30,7 +30,7 @@ export default (state = initialState, action) => {
       error: null
     });
   } else if (action.type === FETCH_ANSWER_SUCCESS) {
-    console.log('actionAnswer', action.question.questions.answer)
+    console.log('actionAnswer Reducer', action.question.questions.answer)
     return Object.assign({}, state, {
       data: action.question.questions.answer,
       loading: false,
@@ -48,9 +48,9 @@ export default (state = initialState, action) => {
       error: null
     });
   } else if (action.type === FETCH_NEXT_SUCCESS) {
-   console.log('actionNext', action.next)
+   console.log('actionNext', action.next.question)
     return Object.assign({}, state, {
-      data: action.next,
+      data:  action.next.question,
       loading: false,
       error: null
     });

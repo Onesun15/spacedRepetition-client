@@ -7,6 +7,7 @@ const fetchAnswerRequest = () => ({
 });
 
 export const FETCH_ANSWER_SUCCESS = 'FETCH_ANSWER_SUCCESS';
+
 const fetchAnswerSuccess = question => ({
   type: FETCH_ANSWER_SUCCESS,
   question
@@ -54,6 +55,7 @@ export const fetchAnswer = (boolean) => (dispatch, getState) => {
       return res.json();
     })
     .then(answer => dispatch(fetchAnswerSuccess(answer)))
+    .then(() => dispatch(fetchNext()))
     .catch(error => dispatch(fetchAnswerError(error)));
 };
 

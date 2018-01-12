@@ -9,9 +9,9 @@ import { fetchNext, fetchAnswer } from '../actions/answers';
 export class Dashboard extends React.Component {
 
   componentDidMount() {
-    this.props.dispatch(fetchQuestion());
-    this.props.dispatch(fetchAnswer());
+    // this.props.dispatch(fetchQuestion())
     this.props.dispatch(fetchNext());
+    // this.props.dispatch(fetchAnswer());
   }
 
   render() {
@@ -34,8 +34,8 @@ export class Dashboard extends React.Component {
           Username: {this.props.username}
         </div>
           <Question
-          question={this.props.questions.question}
-          answer={this.props.questions.answer}
+          question={this.props.questions}
+          answer={this.props.answer}
         />
          <Answer  /> 
       </div>
