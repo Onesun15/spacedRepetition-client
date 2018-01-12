@@ -4,8 +4,10 @@ import thunk from 'redux-thunk';
 import {loadAuthToken} from './local-storage';
 import authReducer from './reducers/auth';
 import protectedDataReducer from './reducers/protected-data';
-import questionsReducer from './reducers/questions';
-import answersReducer from './reducers/answers';
+// import questionsReducer from './reducers/questions';
+// import answersReducer from './reducers/answers';
+// import nextReducer from './reducers/next';
+import combinedReducers from './reducers/combined';
 import {setAuthToken, refreshAuthToken} from './actions/auth';
 
 
@@ -14,8 +16,10 @@ const store = createStore(
         form: formReducer,
         auth: authReducer,
         protectedData: protectedDataReducer,
-        questions: questionsReducer,
-        answers: answersReducer
+        questions: combinedReducers
+        // questions: questionsReducer,
+        // answers: answersReducer,
+        // next: nextReducer
     }),
     applyMiddleware(thunk)
 );
