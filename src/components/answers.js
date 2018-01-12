@@ -45,9 +45,8 @@ export class Answer extends React.Component {
 
 const mapStateToProps = state => {
   const { currentUser } = state.auth;
-  console.log(state)
   return {
-    answer: state.questions.data.questions.answer
+    questions: state.questions.data
   };
 };
 

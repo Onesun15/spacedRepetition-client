@@ -30,9 +30,9 @@ export default (state = initialState, action) => {
       error: null
     });
   } else if (action.type === FETCH_ANSWER_SUCCESS) {
-    console.log('action', action.question)
+    console.log('actionAnswer', action.question.questions.answer)
     return Object.assign({}, state, {
-      data: action.data,
+      data: action.question.questions.answer,
       loading: false,
       error: null
     });
@@ -48,9 +48,9 @@ export default (state = initialState, action) => {
       error: null
     });
   } else if (action.type === FETCH_NEXT_SUCCESS) {
-   // console.log('action', action.question)
+   console.log('actionNext', action.next)
     return Object.assign({}, state, {
-      data: action.data,
+      data: action.next,
       loading: false,
       error: null
     });
@@ -66,9 +66,9 @@ export default (state = initialState, action) => {
       error: null
     });
   } else if (action.type === FETCH_QUESTION_SUCCESS) {
-    //console.log('action', action.question)
+    console.log('actionQuestion',  action.question.questions.question)
     return Object.assign({}, state, {
-      data: action.question.questions,
+      data: action.question.questions.question,
       loading: false,
       error: null
     });

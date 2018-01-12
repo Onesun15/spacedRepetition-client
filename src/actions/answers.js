@@ -51,7 +51,6 @@ export const fetchAnswer = (boolean) => (dispatch, getState) => {
       if (!res.ok) {
         return Promise.reject(res.statusText);
       }
-      console.log(res);
       return res.json();
     })
     .then(answer => dispatch(fetchAnswerSuccess(answer)))
@@ -74,7 +73,6 @@ export const fetchNext = () => (dispatch, getState) => {
       if (!res.ok) {
         return Promise.reject(res.statusText);
       }
-      console.log(res);
       return res.json();
     })
     .then(answer => dispatch(fetchNextSuccess(answer)))
