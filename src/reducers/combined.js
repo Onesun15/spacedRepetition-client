@@ -30,9 +30,12 @@ export default (state = initialState, action) => {
       error: null
     });
   } else if (action.type === FETCH_ANSWER_SUCCESS) {
-    console.log('actionAnswer Reducer', action.question.questions.answer)
+    console.log('FetchAnswerSuccess Reducer+++++++', action.question)
     return Object.assign({}, state, {
-      data: action.question.questions.answer,
+      data: {
+        question: action.questions.question,
+        answer: action.questions.answer
+      },
       loading: false,
       error: null
     });
@@ -48,9 +51,9 @@ export default (state = initialState, action) => {
       error: null
     });
   } else if (action.type === FETCH_NEXT_SUCCESS) {
-   console.log('actionNext', action.next.question)
+   console.log('fetchNextSuccess Reducer', action.question)
     return Object.assign({}, state, {
-      data:  action.next.question,
+      data: action.question,
       loading: false,
       error: null
     });
@@ -66,9 +69,12 @@ export default (state = initialState, action) => {
       error: null
     });
   } else if (action.type === FETCH_QUESTION_SUCCESS) {
-    console.log('actionQuestion',  action.question.questions.question)
+    console.log('FetchQuestionsSuccess Reducer',  action.questions.question)
     return Object.assign({}, state, {
-      data: action.question.questions.question,
+      data: {
+        question: action.questions.question,
+        answer: action.questions.answer
+      },
       loading: false,
       error: null
     });

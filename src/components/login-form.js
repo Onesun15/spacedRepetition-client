@@ -19,6 +19,8 @@ export class LoginForm extends React.Component {
             );
         }
         return (
+            <div class="row">
+            <div class="col-md-2 col-md-offset-5">
             <form
                 className="login-form"
                 onSubmit={this.props.handleSubmit(values =>
@@ -41,10 +43,12 @@ export class LoginForm extends React.Component {
                     id="password"
                     validate={[required, nonEmpty]}
                 />
-                <button disabled={this.props.pristine || this.props.submitting}>
+                <button disabled={this.props.pristine || this.props.submitting} className="btn btn-primary btn-sm ">
                     Log in
                 </button>
             </form>
+            </div>
+            </div>
         );
     }
 }

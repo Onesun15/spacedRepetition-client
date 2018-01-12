@@ -15,7 +15,8 @@ export class Dashboard extends React.Component {
   }
 
   render() {
-    console.log('THIS.PROPS = ', this.props)
+    console.log('THIS.PROPS QUESTIONS = ', this.props.questions)
+    // console.log('THIS.PROPS answer= ', this.props.answer)
    
     if (!this.props.questions) {
       return <h1>Loading....</h1>;
@@ -29,27 +30,36 @@ export class Dashboard extends React.Component {
     //   </div>
     //));
     return (
+      <div class="container">
+      <div class="row">
+      <div class="col-md-2 col-md-offset-5">
+
       <div className="dashboard">
         <div className="dashboard-username">
           Username: {this.props.username}
+          <p>{this.props.answer}</p>
         </div>
-          <Question
-          question={this.props.questions}
-          answer={this.props.answer}
-        />
-         <Answer  /> 
+          <Question />
+         <Answer question={this.props.questions}
+            answer={this.props.answer} /> 
+      </div>
+      </div>
+      </div>
       </div>
     );
   }
 }
 
 const mapStateToProps = state => {
+  console.log(state, 'STATE')
+  console.log(state.questions.data.question, '_+_+_+_')
   const { currentUser } = state.auth;
   return {
     username: state.auth.currentUser.username,
     name: `${currentUser.firstName} ${currentUser.lastName}`,
     protectedData: state.protectedData.data,
-    questions: state.questions.data
+    questions: state.questions.data.question,
+    answer: state.questions.data.answer
   };
 };
 

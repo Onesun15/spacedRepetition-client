@@ -25,9 +25,10 @@ const fetchNextRequest = () => ({
 });
 
 export const FETCH_NEXT_SUCCESS = 'FETCH_NEXT_SUCCESS';
-const fetchNextSuccess = next => ({
+
+const fetchNextSuccess = question => ({
   type: FETCH_NEXT_SUCCESS,
-  next
+  question
 });
 
 export const FETCH_NEXT_ERROR = 'FETCH_NEXT_ERROR';

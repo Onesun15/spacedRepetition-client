@@ -11,14 +11,15 @@ export class Answer extends React.Component {
  
   onSubmit = e => {
     e.preventDefault();
-    const isCorrect = e.target.userAnswer.value === this.props.questions.answer;
-    // console.log('value', e.target.userAnswer.value, 'answer', this.props.questions.answer)
+    const isCorrect = e.target.userAnswer.value === this.props.answer;
+    // console.log('value', e.target.userAnswer.value, 'answer', this.props.answer)
     console.log('isCorrect', isCorrect)
     this.props.dispatch(fetchAnswer(isCorrect));
     e.target.userAnswer.value = '';
   };
   render() {
-    console.log('answers props', this.props.questions)
+    console.log('+++props questions+++', this.props.question)
+    console.log('props answer', this.props.answer)
     return (
       <div>
         <form
@@ -36,10 +37,11 @@ export class Answer extends React.Component {
             placeholder="Translate word to English"
             onChange={e => console.log(e.target.value)}
           />
+          <br/>
           <input
             type="submit"
             id="answerButton"
-            className="button"
+            className="btn btn-primary btn-sm"
             name="submit"
             value="Check"
           />
@@ -50,11 +52,12 @@ export class Answer extends React.Component {
 }
 
 const mapStateToProps = state => {
-  console.log('MapPropsToStateAnswers', state)
+  console.log('MapPropsToStateAnswers', state.questions.data)
   const { currentUser } = state.auth;
   return {
-    questions: state.questions.data
+    answer: state.questions.data,
+    questions: state.questions.data.question,
   };
 };
 
-export default connect(mapStateToProps)(Answer);
+export default connect()(Answer);
