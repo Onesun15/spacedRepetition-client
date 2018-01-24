@@ -19,8 +19,8 @@ export class LoginForm extends React.Component {
             );
         }
         return (
-            <div class="row">
-            <div class="col-md-2 col-md-offset-5">
+            <div className="row">
+            <div className="col-md-2 col-md-offset-5">
             <form
                 className="login-form"
                 onSubmit={this.props.handleSubmit(values =>
