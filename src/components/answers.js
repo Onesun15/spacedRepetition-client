@@ -13,13 +13,13 @@ export class Answer extends React.Component {
     e.preventDefault();
     const isCorrect = e.target.userAnswer.value === this.props.answer;
     // console.log('value', e.target.userAnswer.value, 'answer', this.props.answer)
-    console.log('isCorrect', isCorrect)
+    //console.log('isCorrect', isCorrect)
     this.props.dispatch(fetchAnswer(isCorrect));
     e.target.userAnswer.value = '';
   };
   render() {
-    console.log('+++props questions+++', this.props.question)
-    console.log('props answer', this.props.answer)
+    //console.log('+++props questions+++', this.props.question)
+   // console.log('props answer', this.props.answer)
     return (
       <div>
         <form
@@ -52,7 +52,7 @@ export class Answer extends React.Component {
 }
 
 const mapStateToProps = state => {
-  console.log('MapPropsToStateAnswers', state.questions.data)
+  //console.log('MapPropsToStateAnswers', state.questions.data)
   const { currentUser } = state.auth;
   return {
     answer: state.questions.data,

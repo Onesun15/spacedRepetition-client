@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 function Question(props) {
-  console.log(props.question, 'props.question')
+  //console.log(props.question, 'props.question')
   return (
     <div>
       <h3>Spanish word is:</h3>
@@ -12,7 +12,7 @@ function Question(props) {
 }
 
 const mapStateToProps = state => {
-  console.log(state, 'STATE')
+  //console.log(state, 'STATE')
   return {
     questions: state.questions.data.question,
     answer: state.questions.data.answer
