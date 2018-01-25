@@ -29,10 +29,11 @@ export class Dashboard extends React.Component {
               <div className="dashboard-username">
                 Username: {this.props.username}
               </div>
-              <Question questions={this.props.questions.questions} />
+              <Question questions={this.props.questions.questions} next={this.props.next}/>
               <Answer
                 question={this.props.questions.questions}
                 answer={this.props.answers.questions.answer}
+                next={this.props.next}
               />
             </div>
           </div>

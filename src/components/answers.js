@@ -1,17 +1,24 @@
 import React from 'react';
 import requiresLogin from './requires-login';
 
-import { fetchAnswer } from '../actions/answers';
+import { fetchNext, fetchAnswer } from '../actions/answers';
+import { fetchQuestion } from '../actions/questions';
 
 
 function Answer(props) {
-  console.log('ANSWER-COMPONENT', props.answer);
+  console.log('ANSWER-COMPONENT', props);
   const onSubmit = e => {
     e.preventDefault();
     const isCorrect = e.target.userAnswer.value === props.answer;
+    if(isCorrect) {
+      props.dispatch(fetchAnswer(isCorrect));
+      props.dispatch(fetchQuestion());
+    } else {
+      props.dispatch(fetchNext());
+      props.dispatch(fetchQuestion());
+    }
     console.log('e.target.value = ', e.target.userAnswer.value, ' | answer = ', props.answer)
     console.log('isCorrect', isCorrect)
-    //this.props.dispatch(fetchAnswer(isCorrect));
     e.target.userAnswer.value = '';
   };
 
