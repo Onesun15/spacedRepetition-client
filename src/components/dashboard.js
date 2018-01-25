@@ -8,19 +8,19 @@ import { fetchNext, fetchAnswer } from '../actions/answers';
 
 export class Dashboard extends React.Component {
   componentDidMount() {
-    // this.props.dispatch(fetchQuestion())
+    this.props.dispatch(fetchQuestion());
+    this.props.dispatch(fetchAnswer());
     this.props.dispatch(fetchNext());
-    // this.props.dispatch(fetchAnswer());
   }
 
   render() {
-    //console.log('THIS.PROPS QUESTIONS = ', this.props.questions);
     // console.log('THIS.PROPS answer= ', this.props.answer)
 
-    if (!this.props.questions) {
+    if (!this.props) {
       return <h1>Loading....</h1>;
     }
     // console.log(this.props.questions.questions.question)
+
     //this.props.questions.questions ?  console.log(this.props.questions.questions.question) : null;
     // const questions = this.props.questions.map((question, index) => (
     //   <div className="questions-list" key={index}>
@@ -28,6 +28,7 @@ export class Dashboard extends React.Component {
     //       <div className="english">{question.english}</div>
     //   </div>
     //));
+    console.log('THIS.PROPS DASHBOARD = ', this.props.questions);
     return (
       <div className="container">
         <div className="row">
@@ -37,10 +38,10 @@ export class Dashboard extends React.Component {
                 Username: {this.props.username}
                 <p>{this.props.answer}</p>
               </div>
-              <Question />
+              <Question questions={this.props.questions} />
               <Answer
                 question={this.props.questions}
-                answer={this.props.answer}
+                answer={this.props.answers}
               />
             </div>
           </div>
@@ -51,15 +52,16 @@ export class Dashboard extends React.Component {
 }
 
 const mapStateToProps = state => {
- // console.log(state, 'STATE');
+  // const questions = state.questions.data ? state.questions.data.questions:false;
+  console.log('DASHBOARD-STATE', state, 'ques', state.questions.data);
   //console.log(state.questions.data.question, '_+_+_+_');
   const { currentUser } = state.auth;
   return {
     username: state.auth.currentUser.username,
     name: `${currentUser.firstName} ${currentUser.lastName}`,
-    protectedData: state.protectedData.data,
     questions: state.questions.data.question,
-    answer: state.questions.data.answer
+    answers: state.answers.data.answer,
+    next: state.questions.data.next
   };
 };
 

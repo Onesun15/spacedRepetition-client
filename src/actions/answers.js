@@ -8,9 +8,9 @@ const fetchAnswerRequest = () => ({
 
 export const FETCH_ANSWER_SUCCESS = 'FETCH_ANSWER_SUCCESS';
 
-const fetchAnswerSuccess = question => ({
+const fetchAnswerSuccess = answer => ({
   type: FETCH_ANSWER_SUCCESS,
-  question
+  answer
 });
 
 export const FETCH_ANSWER_ERROR = 'FETCH_ANSWER_ERROR';
@@ -26,9 +26,9 @@ const fetchNextRequest = () => ({
 
 export const FETCH_NEXT_SUCCESS = 'FETCH_NEXT_SUCCESS';
 
-const fetchNextSuccess = question => ({
+const fetchNextSuccess = next => ({
   type: FETCH_NEXT_SUCCESS,
-  question
+  next
 });
 
 export const FETCH_NEXT_ERROR = 'FETCH_NEXT_ERROR';

@@ -1,8 +1,9 @@
 import React from 'react';
+import requiresLogin from './requires-login';
 import { connect } from 'react-redux';
 
 function Question(props) {
-  //console.log(props.question, 'props.question')
+console.log('QUESTIONS-COMPONENT', props.questions)
   return (
     <div>
       <h3>Spanish word is:</h3>
@@ -11,12 +12,4 @@ function Question(props) {
   );
 }
 
-const mapStateToProps = state => {
-  //console.log(state, 'STATE')
-  return {
-    questions: state.questions.data.question,
-    answer: state.questions.data.answer
-  };
-};
-
-export default connect(mapStateToProps)(Question);
+export default requiresLogin()(Question)
