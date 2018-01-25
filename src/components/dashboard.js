@@ -1,6 +1,6 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import requiresLogin from './requires-login';
+import { connect } from 'react-redux';
 import Question from './question';
 import Answer from './answers';
 import { fetchQuestion } from '../actions/questions';
