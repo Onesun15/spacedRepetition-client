@@ -52,7 +52,7 @@ export class Dashboard extends React.Component {
 }
 
 const mapStateToProps = state => {
-  // const questions = state.questions.data ? state.questions.data.questions:false;
+  //const questions = state.questions.data ? state.questions.data.questions:false;
   console.log('DASHBOARD-STATE', state, 'ques', state.questions.data);
   //console.log(state.questions.data.question, '_+_+_+_');
   const { currentUser } = state.auth;
@@ -61,7 +61,8 @@ const mapStateToProps = state => {
     name: `${currentUser.firstName} ${currentUser.lastName}`,
     questions: state.questions.data.question,
     answers: state.answers.data.answer,
-    next: state.questions.data.next
+    next: state.questions.data.next,
+    loading: state.questions.loading
   };
 };
 
