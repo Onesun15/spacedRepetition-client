@@ -1,13 +1,13 @@
 import React from 'react';
 import requiresLogin from './requires-login';
-import { connect } from 'react-redux';
+
 
 function Question(props) {
-console.log('QUESTIONS-COMPONENT', props.questions)
+console.log('QUESTIONS-COMPONENT', props.questions.question)
   return (
     <div>
       <h3>Spanish word is:</h3>
-          <h2 className="spanish_question">{props.questions}</h2> 
+          <h2 className="spanish_question">{props.questions.question}</h2> 
     </div>
   );
 }

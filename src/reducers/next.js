@@ -10,7 +10,7 @@ const initialState = {
   error: null
 };
 
-//----------------------------------------------------------------Next REDUCER-----------------------------------------------------------------
+//---------Next REDUCER-----------------------------------------------------------------
 
 export default (state = initialState, action) => {
   if (action.type === FETCH_NEXT_REQUEST) {
@@ -19,9 +19,9 @@ export default (state = initialState, action) => {
       error: null
     });
   } else if (action.type === FETCH_NEXT_SUCCESS) {
-    console.log('Fetch Next Success Reducer', action);
+    console.log('Fetch Next Success Reducer', action.next.question);
     return Object.assign({}, state, {
-      data: action,
+      data: action.next.question,
       loading: false,
       error: null
     });

@@ -1,8 +1,8 @@
 import React from 'react';
 import requiresLogin from './requires-login';
-import { connect } from 'react-redux';
-import { fetchAnswer, fetchNext } from '../actions/answers';
-import { fetchQuestion } from '../actions/questions';
+//import { connect } from 'react-redux';
+//import { fetchAnswer, fetchNext } from '../actions/answers';
+//import { fetchQuestion } from '../actions/questions';
 
 function Answer(props) {
   console.log('ANSWER-COMPONENT', props);

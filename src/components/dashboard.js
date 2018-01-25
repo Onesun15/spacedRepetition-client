@@ -14,21 +14,13 @@ export class Dashboard extends React.Component {
   }
 
   render() {
-    // console.log('THIS.PROPS answer= ', this.props.answer)
-
-    if (!this.props) {
+    if (this.props.questions === undefined ) {
       return <h1>Loading....</h1>;
     }
-    // console.log(this.props.questions.questions.question)
 
-    //this.props.questions.questions ?  console.log(this.props.questions.questions.question) : null;
-    // const questions = this.props.questions.map((question, index) => (
-    //   <div className="questions-list" key={index}>
-    //       <div className="spanish">{question.spanish}</div>
-    //       <div className="english">{question.english}</div>
-    //   </div>
-    //));
-    console.log('THIS.PROPS DASHBOARD = ', this.props.questions);
+   //console.log('THIS.PROPS DASHBOARD question= ', this.props.questions.questions);
+   //console.log('THIS.PROPS DASHBOARD answer= ', this.props.answers.questions.answer);
+   //console.log('THIS.PROPS DASHBOARD next= ', this.props.next);
     return (
       <div className="container">
         <div className="row">
@@ -36,12 +28,11 @@ export class Dashboard extends React.Component {
             <div className="dashboard">
               <div className="dashboard-username">
                 Username: {this.props.username}
-                <p>{this.props.answer}</p>
               </div>
-              <Question questions={this.props.questions} />
+              <Question questions={this.props.questions.questions} />
               <Answer
-                question={this.props.questions}
-                answer={this.props.answers}
+                question={this.props.questions.questions}
+                answer={this.props.answers.questions.answer}
               />
             </div>
           </div>
@@ -52,16 +43,14 @@ export class Dashboard extends React.Component {
 }
 
 const mapStateToProps = state => {
-  //const questions = state.questions.data ? state.questions.data.questions:false;
-  console.log('DASHBOARD-STATE', state, 'ques', state.questions.data);
-  //console.log(state.questions.data.question, '_+_+_+_');
+  console.log('DASHBOARD-STATE', state);
   const { currentUser } = state.auth;
   return {
     username: state.auth.currentUser.username,
     name: `${currentUser.firstName} ${currentUser.lastName}`,
     questions: state.questions.data.question,
     answers: state.answers.data.answer,
-    next: state.questions.data.next,
+    next: state.next.data,
     loading: state.questions.loading
   };
 };

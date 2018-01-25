@@ -10,7 +10,7 @@ const initialState = {
   error: null
 };
 
-//----------------------------------------------------------------Answer REDUCER-----------------------------------------------------------------
+//---------------Answer REDUCER-----------------------------------------------------------------
 
 export default (state = initialState, action) => {
   if (action.type === FETCH_ANSWER_REQUEST) {

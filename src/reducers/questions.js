@@ -10,7 +10,7 @@ const initialState = {
   error: null
 };
 
-//----------------------------------------------------------------Questions REDUCER-----------------------------------------------------------------
+//------------Questions REDUCER-----------------------------------------------------------------
 
 export default (state = initialState, action) => {
   if (action.type === FETCH_QUESTION_REQUEST) {
@@ -28,7 +28,6 @@ export default (state = initialState, action) => {
   } else if (action.type === FETCH_QUESTION_ERROR) {
     return Object.assign({}, state, {
       error: action.error,
-      loading: false
     });
   }
   return state;
