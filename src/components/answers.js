@@ -1,16 +1,16 @@
 import React from 'react';
 import requiresLogin from './requires-login';
-//import { connect } from 'react-redux';
-//import { fetchAnswer, fetchNext } from '../actions/answers';
-//import { fetchQuestion } from '../actions/questions';
+
+import { fetchAnswer } from '../actions/answers';
+
 
 function Answer(props) {
-  console.log('ANSWER-COMPONENT', props);
+  console.log('ANSWER-COMPONENT', props.answer);
   const onSubmit = e => {
     e.preventDefault();
-    //const isCorrect = e.target.userAnswer.value === props.answer;
-    //console.log('value', e.target.userAnswer.value, 'answer', this.props.answer)
-    //console.log('isCorrect', isCorrect)
+    const isCorrect = e.target.userAnswer.value === props.answer;
+    console.log('e.target.value = ', e.target.userAnswer.value, ' | answer = ', props.answer)
+    console.log('isCorrect', isCorrect)
     //this.props.dispatch(fetchAnswer(isCorrect));
     e.target.userAnswer.value = '';
   };
