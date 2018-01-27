@@ -22,22 +22,18 @@ export class Dashboard extends React.Component {
     //console.log('THIS.PROPS DASHBOARD answer= ', this.props.answers.questions);
     //console.log('THIS.PROPS DASHBOARD next= ', this.props.next);
     return (
-      <div className="container">
-        <div className="row">
-          <div className="col-md-2 col-md-offset-5">
-            <div className="dashboard">
-              <div className="dashboard-username">
-                Username: {this.props.username}
-              </div>
-              <NextQuestion next={this.props.next} />
-              <Answer
-                answer={this.props.answers.questions}
-                next={this.props.next}
-              />
+      <div className="container col-md-10 center-block text-center">
+          <div className="dashboard">
+            <div className="dashboard-username">
+              Username: {this.props.username}
             </div>
+            <NextQuestion next={this.props.next} />
+            <Answer
+              answer={this.props.answers.questions}
+              next={this.props.next}
+            />
           </div>
         </div>
-      </div>
     );
   }
 }
