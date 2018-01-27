@@ -1,5 +1,5 @@
 import {API_BASE_URL} from '../config';
-// import {normalizeResponseErrors} from './utils';
+
 
 export const FETCH_QUESTION_REQUEST = 'FETCH_QUESTION_REQUEST';
 const fetchQuestionRequest = () => ({
@@ -18,11 +18,17 @@ const fetchQuestionError = error => ({
   error
 });
 
-export const fetchQuestion = () => dispatch => {
-  
+export const fetchQuestion = () => (dispatch, getState) => {
+  const authToken = getState().auth.authToken;
   dispatch(fetchQuestionRequest());
-  console.log('fetch question working')
-  fetch(`${API_BASE_URL}/questions`)
+  //console.log('fetch question working')
+  fetch(`${API_BASE_URL}/questions/questions`,  {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+      Authorization: `Bearer ${authToken}`}
+    })
     .then(res => {
       if (!res.ok) {
         return Promise.reject(res.statusText);
