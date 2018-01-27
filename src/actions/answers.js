@@ -64,7 +64,7 @@ export const fetchAnswer = (boolean) => (dispatch, getState) => {
 export const fetchNext = () => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
   dispatch(fetchNextRequest());
-  console.log('fetch answer working')
+  console.log('fetch Next working')
   fetch(`${API_BASE_URL}/questions/next`,  {
     method: 'GET',
     headers: {

@@ -1,7 +1,7 @@
 import React from 'react';
 import requiresLogin from './requires-login';
 import { connect } from 'react-redux';
-import Question from './question';
+import NextQuestion from './next-question';
 import Answer from './answers';
 import { fetchQuestion } from '../actions/questions';
 import { fetchNext, fetchAnswer } from '../actions/answers';
@@ -18,8 +18,8 @@ export class Dashboard extends React.Component {
       return <h1>Loading....</h1>;
     }
 
-   //console.log('THIS.PROPS DASHBOARD question= ', this.props.questions.questions);
-   //console.log('THIS.PROPS DASHBOARD answer= ', this.props.answers.questions.answer);
+   //console.log('THIS.PROPS DASHBOARD question= ', this.props.questions);
+   //console.log('THIS.PROPS DASHBOARD answer= ', this.props.answers.questions);
    //console.log('THIS.PROPS DASHBOARD next= ', this.props.next);
     return (
       <div className="container">
@@ -29,10 +29,10 @@ export class Dashboard extends React.Component {
               <div className="dashboard-username">
                 Username: {this.props.username}
               </div>
-              <Question questions={this.props.questions.questions} next={this.props.next}/>
+              <NextQuestion next={this.props.next}/>
               <Answer
-                question={this.props.questions.questions}
-                answer={this.props.answers.questions.answer}
+                // question={this.props.questions.questions}
+                answer={this.props.answers.questions}
                 next={this.props.next}
               />
             </div>
@@ -44,7 +44,7 @@ export class Dashboard extends React.Component {
 }
 
 const mapStateToProps = state => {
-  console.log('DASHBOARD-STATE', state);
+ //console.log('DASHBOARD-STATE', state);
   const { currentUser } = state.auth;
   return {
     username: state.auth.currentUser.username,

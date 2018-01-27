@@ -7,9 +7,17 @@ import { fetchQuestion } from '../actions/questions';
 
 function Answer(props) {
   console.log('ANSWER-COMPONENT', props);
+  const theAnswer = props.answer.map((answer, index)=> {
+    return answer.answer;
+  })
   const onSubmit = e => {
     e.preventDefault();
-    const isCorrect = e.target.userAnswer.value === props.answer;
+    let isCorrect = false;
+    for(let i = 0; i <= theAnswer.length; i++) {
+      if(e.target.userAnswer.value === theAnswer[i]) {
+        isCorrect = true;
+      }
+    }
     if(isCorrect) {
       props.dispatch(fetchAnswer(isCorrect));
       props.dispatch(fetchQuestion());
@@ -17,7 +25,7 @@ function Answer(props) {
       props.dispatch(fetchNext());
       props.dispatch(fetchQuestion());
     }
-    console.log('e.target.value = ', e.target.userAnswer.value, ' | answer = ', props.answer)
+   // console.log('e.target.value = ', e.target.userAnswer.value, ' | answer = ', props.answer)
     console.log('isCorrect', isCorrect)
     e.target.userAnswer.value = '';
   };

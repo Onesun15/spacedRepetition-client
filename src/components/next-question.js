@@ -2,8 +2,8 @@ import React from 'react';
 import requiresLogin from './requires-login';
 
 
-function Question(props) {
-console.log('QUESTIONS-COMPONENT', props.next)
+function NextQuestion(props) {
+console.log('NEXT-QUESTION-COMPONENT', props.next)
   return (
     <div>
       <h3>Spanish word is:</h3>
@@ -12,4 +12,4 @@ console.log('QUESTIONS-COMPONENT', props.next)
   );
 }
 
-export default requiresLogin()(Question)
+export default requiresLogin()(NextQuestion)
