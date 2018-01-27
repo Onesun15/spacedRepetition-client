@@ -34,7 +34,7 @@ function Answer(props) {
           className="text"
           maxLength="100"
           autoComplete="off"
-          placeholder="Translate word to English  "
+          placeholder="Input English Word  "
           onChange={e => console.log(e.target.value)}
         />
         <br />
