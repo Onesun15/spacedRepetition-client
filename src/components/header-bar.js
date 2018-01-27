@@ -19,7 +19,7 @@ export class HeaderBar extends React.Component {
         }
         return (
             <div className="container col-md-10">
-            <div className="header-bar  ">
+            <div className="header-bar">
                 <h1>Hola Mundo!</h1>
                 {logOutButton}
             </div>

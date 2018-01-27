@@ -19,8 +19,7 @@ export class LoginForm extends React.Component {
             );
         }
         return (
-            <div className="row">
-            <div className="col-md-2 col-md-offset-5">
+            <div className="container col-md-10 center-block text-center">
             <form
                 className="login-form"
                 onSubmit={this.props.handleSubmit(values =>
@@ -47,7 +46,6 @@ export class LoginForm extends React.Component {
                     Log in
                 </button>
             </form>
-            </div>
             </div>
         );
     }

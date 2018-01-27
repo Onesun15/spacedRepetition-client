@@ -15,7 +15,7 @@ button {
   font-size: 20px !important;
 }
 
-.spanish_question {
+.spanish_question, h2 {
   color: rgb(56, 69, 187);
   font-size: 75px;
 }
@@ -26,21 +26,22 @@ button {
   font-size: 20px
 }
 
-.dashboard {
+.dashboard, .login-form {
   align-content: center;
   margin-top: 200px;
-  font-size: 50px;
+  font-size: 25px;
 }
 
 .header-bar{
   float: right !important;
+  text-align: right;
+  margin-top: 20px;
 }
 
-#userAnswer{
+#userAnswer, {
   font-size: 25px !important;
 }
  
-
 
 
 
