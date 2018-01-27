@@ -19,7 +19,7 @@ export default (state = initialState, action) => {
       error: null
     });
   } else if (action.type === FETCH_ANSWER_SUCCESS) {
-    console.log('Fetch Answer Success Reducer', action.answer.questions.answer);
+    //console.log('Fetch Answer Success Reducer', action.answer.questions.answer);
     return Object.assign({}, state, {
       data: action,
       loading: false,

@@ -14,13 +14,13 @@ export class Dashboard extends React.Component {
   }
 
   render() {
-    if (this.props.questions === undefined ) {
+    if (this.props.questions === undefined) {
       return <h1>Loading....</h1>;
     }
 
-   //console.log('THIS.PROPS DASHBOARD question= ', this.props.questions);
-   //console.log('THIS.PROPS DASHBOARD answer= ', this.props.answers.questions);
-   //console.log('THIS.PROPS DASHBOARD next= ', this.props.next);
+    //console.log('THIS.PROPS DASHBOARD question= ', this.props.questions);
+    //console.log('THIS.PROPS DASHBOARD answer= ', this.props.answers.questions);
+    //console.log('THIS.PROPS DASHBOARD next= ', this.props.next);
     return (
       <div className="container">
         <div className="row">
@@ -29,9 +29,8 @@ export class Dashboard extends React.Component {
               <div className="dashboard-username">
                 Username: {this.props.username}
               </div>
-              <NextQuestion next={this.props.next}/>
+              <NextQuestion next={this.props.next} />
               <Answer
-                // question={this.props.questions.questions}
                 answer={this.props.answers.questions}
                 next={this.props.next}
               />
@@ -44,7 +43,7 @@ export class Dashboard extends React.Component {
 }
 
 const mapStateToProps = state => {
- //console.log('DASHBOARD-STATE', state);
+  //console.log('DASHBOARD-STATE', state);
   const { currentUser } = state.auth;
   return {
     username: state.auth.currentUser.username,

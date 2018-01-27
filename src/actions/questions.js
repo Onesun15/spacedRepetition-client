@@ -21,7 +21,7 @@ const fetchQuestionError = error => ({
 export const fetchQuestion = () => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
   dispatch(fetchQuestionRequest());
-  console.log('fetch question working')
+  //console.log('fetch question working')
   fetch(`${API_BASE_URL}/questions/questions`,  {
     method: 'GET',
     headers: {

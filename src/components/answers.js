@@ -2,11 +2,9 @@ import React from 'react';
 import requiresLogin from './requires-login';
 
 import { fetchNext, fetchAnswer } from '../actions/answers';
-import { fetchQuestion } from '../actions/questions';
 
 
 function Answer(props) {
-  console.log('ANSWER-COMPONENT', props);
   const theAnswer = props.answer.map((answer, index)=> {
     return answer.answer;
   })
@@ -20,13 +18,9 @@ function Answer(props) {
     }
     if(isCorrect) {
       props.dispatch(fetchAnswer(isCorrect));
-      props.dispatch(fetchQuestion());
     } else {
       props.dispatch(fetchNext());
-      props.dispatch(fetchQuestion());
     }
-   // console.log('e.target.value = ', e.target.userAnswer.value, ' | answer = ', props.answer)
-    console.log('isCorrect', isCorrect)
     e.target.userAnswer.value = '';
   };
 

@@ -3,7 +3,7 @@ import requiresLogin from './requires-login';
 
 
 function NextQuestion(props) {
-console.log('NEXT-QUESTION-COMPONENT', props.next)
+//console.log('NEXT-QUESTION-COMPONENT', props.next)
   return (
     <div>
       <h3>Spanish word is:</h3>

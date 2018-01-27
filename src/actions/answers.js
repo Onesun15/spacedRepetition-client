@@ -40,7 +40,7 @@ const fetchNextError = error => ({
 export const fetchAnswer = (boolean) => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
   dispatch(fetchAnswerRequest());
-  console.log('fetch answer working')
+  //console.log('fetch answer working')
   fetch(`${API_BASE_URL}/questions/answer`,  {
     method: 'POST',
     body: JSON.stringify({ boolean }),
@@ -64,7 +64,7 @@ export const fetchAnswer = (boolean) => (dispatch, getState) => {
 export const fetchNext = () => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
   dispatch(fetchNextRequest());
-  console.log('fetch Next working')
+  //console.log('fetch Next working')
   fetch(`${API_BASE_URL}/questions/next`,  {
     method: 'GET',
     headers: {
