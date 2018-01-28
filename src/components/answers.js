@@ -18,14 +18,17 @@ function Answer(props) {
     }
     if(isCorrect) {
       props.dispatch(fetchAnswer(isCorrect));
+      props.correctStr();
     } else {
       props.dispatch(fetchNext());
+      props.incorrectStr()
     }
     e.target.userAnswer.value = '';
   };
 
   return (
     <div>
+      <div>{props.strState}</div>
       <form onSubmit={onSubmit}>
         <input
           type="text"
