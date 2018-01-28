@@ -28,10 +28,6 @@ export class Dashboard extends React.Component {
     this.setState({ str: 'Sorry, try again....' });
   }
 
-  emptyStr() {
-    this.setState({ str: '...' });
-  }
-
   render() {
     if (this.props.questions === undefined) {
       return <h1>Loading....</h1>;
