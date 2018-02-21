@@ -12,24 +12,21 @@ export class Answer extends Component {
 			return <h1>Loading....</h1>;
 		}
 
-		const theAnswer = this.props.answerObject.questions.map((answer, index) => {
-			return answer.answer;
-		});
-
 		const onSubmit = e => {
 			e.preventDefault();
-			let submittedAnswer = e.target.userAnswer.value;
 			let isCorrect = false;
-			let score = 0;
-			for (let i = 0; i < theAnswer.length; i++) {
-				var answerItem = theAnswer[i];
-				if (answerItem === submittedAnswer) {
-					isCorrect = true;
-					score += 1;
-				}
+			const individualAnswer = this.props.next.answer;
+			let submittedAnswer = e.target.userAnswer.value;
+			console.log('submittedAnswer: ', submittedAnswer);
+			if (submittedAnswer === individualAnswer) {
+				isCorrect = true;
+				this.props.dispatch(actions.fetchAnswer(isCorrect));
+				this.props.dispatch(actions.fetchScoreSuccess(this.props.runningScore));
+			} else {
+				this.props.dispatch(actions.wrongScoreAction(this.props.runningScore));
+				this.props.dispatch(actions.fetchAnswer(isCorrect));
 			}
-			this.props.dispatch(actions.fetchAnswer(isCorrect));
-			this.props.dispatch(actions.fetchScoreSuccess(score));
+
 			e.target.userAnswer.value = '';
 		};
 

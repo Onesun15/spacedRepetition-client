@@ -42,6 +42,12 @@ export const fetchScoreSuccess = score => ({
 	score,
 });
 
+export const WRONG_ANSWER_ACTION = 'WRONG_ANSWER_ACTION';
+export const wrongScoreAction = score => ({
+	type: WRONG_ANSWER_ACTION,
+	score,
+});
+
 export const fetchAnswer = boolean => (dispatch, getState) => {
 	const authToken = getState().auth.authToken;
 	dispatch(fetchAnswerRequest());

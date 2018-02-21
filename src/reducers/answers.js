@@ -3,6 +3,7 @@ import {
 	FETCH_ANSWER_SUCCESS,
 	FETCH_ANSWER_ERROR,
 	FETCH_SCORE_SUCCESS,
+	WRONG_ANSWER_ACTION,
 } from '../actions/answers';
 
 const initialState = {
@@ -36,7 +37,13 @@ export default (state = initialState, action) => {
 		return Object.assign({}, state, {
 			loading: false,
 			error: null,
-			score: action.score,
+			score: (action.score += 1),
+		});
+	} else if (action.type === WRONG_ANSWER_ACTION) {
+		return Object.assign({}, state, {
+			loading: false,
+			error: null,
+			score: (action.score -= 1),
 		});
 	}
 	return state;
