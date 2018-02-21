@@ -1,49 +1,55 @@
 body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-  background-color: rgb(147, 209, 147);
-  color: rgb(237, 241, 237);
-  font-family: 'Roboto', sans-serif;
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+	background-color: rgb(147, 209, 147);
+	color: rgb(237, 241, 237);
+	font-family: 'Roboto', sans-serif;
 }
 
 button {
-  margin-top: 5px;
-  margin-right: 5px;
-  margin-bottom: 5px;
-  margin-top: 5px;
-  font-size: 20px !important;
+	margin-top: 5px;
+	margin-right: 5px;
+	margin-bottom: 5px;
+	margin-top: 5px;
+	font-size: 20px !important;
 }
 
-.spanish_question, h2 {
-  color: rgb(56, 69, 187);
-  font-size: 75px;
+.spanish_question,
+h2 {
+	color: rgb(56, 69, 187);
+	font-size: 75px;
 }
-
 
 #answerButton {
-  margin-top: 5px;
-  font-size: 20px
+	margin-top: 5px;
+	font-size: 20px;
 }
 
-.dashboard, .login-form {
-  align-content: center;
-  margin-top: 200px;
-  font-size: 25px;
+.dashboard,
+.login-form {
+	align-content: center;
+	margin-top: 200px;
+	font-size: 25px;
 }
 
-.header-bar{
-  float: right !important;
-  text-align: right;
-  margin-top: 20px;
+.header-bar {
+	float: right !important;
+	text-align: right;
+	margin-top: 20px;
+	width: 100%;
+	background-color: grey;
+	border-bottom: blue 1px solid;
 }
 
-#userAnswer, {
-  font-size: 25px !important;
+#userAnswer {
+	font-size: 25px !important;
 }
- 
 
-
-
-
-
+.scoreCardWrapper {
+	float: left;
+	position: absolute;
+	background-color: pink;
+	height: 200px;
+	width: 200px;
+}
