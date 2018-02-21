@@ -7,7 +7,7 @@ export class NextQuestion extends Component {
 		//console.log('NEXT-QUESTION-COMPONENT', props.next)
 		return (
 			<div>
-				<h3>Spanish word is:</h3>
+				<h3 className="spanishWord">Spanish word is:</h3>
 				<h2 className="spanish_question">{this.props.next.question}</h2>
 			</div>
 		);

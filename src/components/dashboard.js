@@ -16,13 +16,11 @@ export class Dashboard extends React.Component {
 
 	render() {
 		return (
-			<div className="container col-md-10 center-block text-center">
-				<div className="dashboard">
-					<div className="scoreCardWrapper">
-						{/* <div className="dashboard-username">Username: {this.props.username}</div> */}
-						{/* <div>Correct: {this.props.runningScore}</div> */}
-					</div>
+			<div className="container col-md-10 center-block text-center dashboard">
+				<div className="scoreCardWrapper">
 					<ScoreCard />
+				</div>
+				<div className="selectionFieldWrapper">
 					<NextQuestion />
 					<Answer />
 				</div>

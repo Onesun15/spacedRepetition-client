@@ -8,7 +8,7 @@ export class ScoreCard extends Component {
 	render() {
 		return (
 			<div className="scoreCardWrapper">
-				<div className="dashboard-username">Username: {this.props.username}</div>
+				<div className="dashboard-username">{this.props.username}</div>
 				<div className="userScore">Score: {this.props.runningScore}</div>
 			</div>
 		);
