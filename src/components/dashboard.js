@@ -3,52 +3,39 @@ import requiresLogin from './requires-login';
 import { connect } from 'react-redux';
 import NextQuestion from './next-question';
 import Answer from './answers';
+import ScoreCard from './scoreCard';
 import { fetchQuestion } from '../actions/questions';
 import { fetchNext, fetchAnswer } from '../actions/answers';
+import './dashboard.css';
 
 export class Dashboard extends React.Component {
-  componentDidMount() {
-    this.props.dispatch(fetchQuestion());
-    this.props.dispatch(fetchAnswer());
-    this.props.dispatch(fetchNext());
-  }
+	componentWillMount() {
+		this.props.dispatch(fetchQuestion());
+		this.props.dispatch(fetchAnswer());
+		this.props.dispatch(fetchNext());
+	}
 
-  render() {
-    if (this.props.questions === undefined) {
-      return <h1>Loading....</h1>;
-    }
-
-    //console.log('THIS.PROPS DASHBOARD question= ', this.props.questions);
-    //console.log('THIS.PROPS DASHBOARD answer= ', this.props.answers.questions);
-    //console.log('THIS.PROPS DASHBOARD next= ', this.props.next);
-    return (
-      <div className="container col-md-10 center-block text-center">
-          <div className="dashboard">
-            <div className="dashboard-username">
-              Username: {this.props.username}
-            </div>
-            <NextQuestion next={this.props.next} />
-            <Answer
-              answer={this.props.answers.questions}
-              next={this.props.next}
-            />
-          </div>
-        </div>
-    );
-  }
+	render() {
+		return (
+			<div className="container col-md-10 center-block text-center dashboard">
+				<div className="scoreCardWrapper">
+					<ScoreCard />
+				</div>
+				<div className="selectionFieldWrapper">
+					<NextQuestion />
+					<Answer />
+				</div>
+			</div>
+		);
+	}
 }
 
-const mapStateToProps = state => {
-  //console.log('DASHBOARD-STATE', state);
-  const { currentUser } = state.auth;
-  return {
-    username: state.auth.currentUser.username,
-    name: `${currentUser.firstName} ${currentUser.lastName}`,
-    questions: state.questions.data.question,
-    answers: state.answers.data.answer,
-    next: state.next.data,
-    loading: state.questions.loading
-  };
-};
-
+const mapStateToProps = state => ({
+	username: state.auth.currentUser.username,
+	questions: state.questions.data.question,
+	answers: state.answers.data.answer,
+	next: state.next.data,
+	loading: state.questions.loading,
+	runningScore: state.answers.score,
+});
 export default requiresLogin()(connect(mapStateToProps)(Dashboard));
