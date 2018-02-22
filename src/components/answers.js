@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import requiresLogin from './requires-login';
 import { connect } from 'react-redux';
 
-import { fetchNext, fetchAnswer } from '../actions/answers';
-
 import * as actions from '../actions/answers';
 
 export class Answer extends Component {

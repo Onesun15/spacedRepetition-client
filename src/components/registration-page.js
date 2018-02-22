@@ -16,6 +16,7 @@ export function RegistrationPage(props) {
 				<img
 					className="sideImageRegistration"
 					src="https://www.letslearnspanish.co.uk/wp-content/uploads/2011/06/vamos-logo.png"
+					alt="Invocation to learn Spanish"
 				/>
 			</div>
 			<div className="registerFormWrapper">

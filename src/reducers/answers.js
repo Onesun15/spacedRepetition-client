@@ -11,6 +11,7 @@ const initialState = {
 	loading: false,
 	error: null,
 	score: 0,
+	toggleFeedback: null,
 };
 
 //---------------Answer REDUCER-----------------------------------------------------------------
@@ -38,12 +39,14 @@ export default (state = initialState, action) => {
 			loading: false,
 			error: null,
 			score: (action.score += 1),
+			toggleFeedback: true,
 		});
 	} else if (action.type === WRONG_ANSWER_ACTION) {
 		return Object.assign({}, state, {
 			loading: false,
 			error: null,
 			score: (action.score -= 1),
+			toggleFeedback: false,
 		});
 	}
 	return state;

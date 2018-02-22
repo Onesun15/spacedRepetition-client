@@ -5,7 +5,8 @@ import NextQuestion from './next-question';
 import Answer from './answers';
 import ScoreCard from './scoreCard';
 import { fetchQuestion } from '../actions/questions';
-import { fetchNext, fetchAnswer, fetchScoreSuccess } from '../actions/answers';
+import { fetchNext, fetchAnswer } from '../actions/answers';
+import './dashboard.css';
 
 export class Dashboard extends React.Component {
 	componentWillMount() {
